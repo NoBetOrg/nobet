@@ -1,0 +1,7 @@
+{
+  "buildCommand": "pnpm turbo run build --filter=@nobet/web",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "outputDirectory": "apps/web/dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
