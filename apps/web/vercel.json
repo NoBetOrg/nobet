@@ -2,5 +2,6 @@
   "buildCommand": "cd ../.. && pnpm turbo run build --filter=@nobet/web",
   "installCommand": "cd ../.. && pnpm install",
   "framework": "vite",
+  "outputDirectory": "dist",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
