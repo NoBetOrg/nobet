@@ -1,0 +1,41 @@
+{
+  "name": "@nobet/api",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./router": {
+      "types": "./dist/trpc/router.d.ts",
+      "default": "./dist/trpc/router.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "db:generate": "cd ../../packages/db && pnpm run db:generate",
+    "db:migrate": "cd ../../packages/db && pnpm run db:migrate",
+    "db:studio": "cd ../../packages/db && pnpm run db:studio"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@nobet/db": "workspace:*",
+    "@nobet/shared": "workspace:*",
+    "@trpc/server": "^11.0.0-rc.706",
+    "better-auth": "^1.4.18",
+    "drizzle-orm": "^0.38.3",
+    "hono": "^4.6.16",
+    "superjson": "^2.2.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "dotenv": "^16.4.7",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #121212;
+  --color-surface: #1e1e1e;
+  --color-surface-2: #2a2a2a;
+  --color-surface-3: #333333;
+  --color-sidebar: #1a2e1a;
+  --color-sidebar-hover: #243824;
+  --color-sidebar-active: #2d4a2d;
+  --color-border: #3a3a3a;
+  --color-border-light: #444444;
+
+  --color-primary: #ffdf1b;
+  --color-primary-foreground: #1a1a1a;
+  --color-primary-hover: #ffe84d;
+
+  --color-live: #4caf50;
+  --color-live-dim: #2d6e30;
+  --color-accent-green: #00a651;
+  --color-accent-green-hover: #00c060;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #6b7280;
+  --color-text-dim: #555555;
+
+  --color-odds: #2a3f5c;
+  --color-odds-hover: #3a5278;
+  --color-odds-selected: #1e3a5f;
+  --color-odds-border: #3d5a80;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --color-card: #1e1e1e;
+  --color-card-foreground: #ffffff;
+  --color-foreground: #ffffff;
+  --color-muted-foreground: #a0a0a0;
+  --color-input: #2a2a2a;
+  --color-ring: #ffdf1b;
+  --color-secondary: #2a2a2a;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #333333;
+  --color-accent-foreground: #ffffff;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}
+
+/* Shadcn/ui CSS variable bridge */
+:root {
+  --background: #121212;
+  --foreground: #ffffff;
+  --card: #1e1e1e;
+  --card-foreground: #ffffff;
+  --popover: #1e1e1e;
+  --popover-foreground: #ffffff;
+  --primary: #ffdf1b;
+  --primary-foreground: #1a1a1a;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #ffffff;
+  --muted: #2a2a2a;
+  --muted-foreground: #a0a0a0;
+  --accent: #333333;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #3a3a3a;
+  --input: #2a2a2a;
+  --ring: #ffdf1b;
+  --radius: 0.375rem;
+}
+
+/* Global base */
+* {
+  border-color: var(--border);
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Live pulse animation */
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-live-pulse {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+/* Odds button flash animation */
+@keyframes odds-flash {
+  0% {
+    background-color: #2a3f5c;
+  }
+  50% {
+    background-color: #ffdf1b;
+  }
+  100% {
+    background-color: #2a3f5c;
+  }
+}
+
+.animate-odds-flash {
+  animation: odds-flash 0.4s ease-in-out;
+}

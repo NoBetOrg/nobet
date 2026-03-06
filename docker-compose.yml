@@ -1,0 +1,38 @@
+# =============================================================================
+# Nobet — Local Development Services (Optional)
+# =============================================================================
+#
+# This file provides local Docker containers for development dependencies.
+# It is NOT required — you can use Neon's serverless database directly.
+#
+# Usage:
+#   docker compose up -d        # Start services in background
+#   docker compose down          # Stop services
+#   docker compose down -v       # Stop services and remove data volumes
+#
+# When using local PostgreSQL, set this in your .env:
+#   DATABASE_URL=postgresql://nobet:nobet@localhost:5432/nobet
+# =============================================================================
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: nobet-postgres
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: nobet
+      POSTGRES_PASSWORD: nobet
+      POSTGRES_DB: nobet
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U nobet -d nobet']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
+    driver: local

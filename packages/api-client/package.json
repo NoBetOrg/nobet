@@ -1,0 +1,28 @@
+{
+  "name": "@nobet/api-client",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "format:check": "biome format ."
+  },
+  "dependencies": {
+    "@nobet/api": "workspace:*",
+    "@tanstack/react-query": "^5.62.14",
+    "@trpc/client": "^11.0.0-rc.706",
+    "@trpc/react-query": "^11.0.0-rc.706",
+    "superjson": "^2.2.2"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "vite": "^6.4.1"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "nobet",
+  "version": "1.0.0",
+  "description": "Nobet monorepo - full-stack TypeScript application",
+  "homepage": "https://github.com/pauloouriques/nobet#readme",
+  "bugs": {
+    "url": "https://github.com/pauloouriques/nobet/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pauloouriques/nobet.git"
+  },
+  "license": "ISC",
+  "author": "OT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "format": "turbo run format",
+    "format:check": "turbo run format:check",
+    "test": "turbo run test",
+    "db:generate": "turbo run db:generate",
+    "db:migrate": "turbo run db:migrate",
+    "db:studio": "turbo run db:studio",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:reset": "docker compose down -v",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=22.20.0"
+  },
+  "packageManager": "pnpm@10.4.1",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "drizzle-kit": "^0.30.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "turbo": "^2.3.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md}": [
+      "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+    ]
+  }
+}
