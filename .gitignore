@@ -76,9 +76,6 @@ next-env.d.ts
 !tailwind.config.js
 !postcss.config.js
 
-# Drizzle
-drizzle/
-
 # Database
 *.db
 *.sqlite
