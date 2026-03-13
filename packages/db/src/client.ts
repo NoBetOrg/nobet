@@ -1,12 +1,14 @@
 import { neon } from "@neondatabase/serverless";
-import { drizzle as drizzleNeon } from "drizzle-orm/neon-http";
-import { drizzle as drizzlePostgres } from "drizzle-orm/postgres-js";
+import { type NeonHttpDatabase, drizzle as drizzleNeon } from "drizzle-orm/neon-http";
+import { type PostgresJsDatabase, drizzle as drizzlePostgres } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema/index.js";
 
-let _db: ReturnType<typeof drizzleNeon> | ReturnType<typeof drizzlePostgres> | null = null;
+type Database = NeonHttpDatabase<typeof schema> | PostgresJsDatabase<typeof schema>;
 
-function initializeDb() {
+let _db: Database | null = null;
+
+function initializeDb(): Database {
   if (_db) return _db;
 
   const DATABASE_URL = process.env.DATABASE_URL;
@@ -18,18 +20,20 @@ function initializeDb() {
   // Smart driver selection based on connection string
   const isNeon = DATABASE_URL.includes("neon.tech");
 
-  _db = isNeon
+  const dbInstance = isNeon
     ? drizzleNeon(neon(DATABASE_URL), { schema })
     : drizzlePostgres(postgres(DATABASE_URL), { schema });
+
+  _db = dbInstance as Database;
 
   return _db;
 }
 
-export const db = new Proxy({} as ReturnType<typeof initializeDb>, {
+export const db = new Proxy({} as Database, {
   get(_target, prop) {
     const instance = initializeDb();
-    return instance[prop as keyof typeof instance];
+    return instance[prop as keyof Database];
   },
 });
 
-export type Database = typeof db;
+export type { Database };

@@ -12,6 +12,10 @@
       "dependsOn": ["^build", "db:migrate"],
       "outputs": ["dist/**", ".next/**", "build/**"]
     },
+    "build:web": {
+      "dependsOn": ["^build:web"],
+      "outputs": ["dist/**", ".next/**", "build/**"]
+    },
     "dev": {
       "persistent": true,
       "cache": false
