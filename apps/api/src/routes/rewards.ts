@@ -1,6 +1,7 @@
-import { and, desc, eq, gt, redemptions, rewards, sql, users } from "@nobet/db";
+import { redemptions, rewards, users } from "@nobet/db";
 import { redeemRewardSchema } from "@nobet/shared";
 import { TRPCError } from "@trpc/server";
+import { and, desc, eq, gt, sql } from "drizzle-orm";
 import { z } from "zod";
 import { protectedProcedure, publicProcedure, router } from "../trpc/trpc.js";
 
