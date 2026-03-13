@@ -48,12 +48,18 @@ app.get("/health", (c) => {
   return c.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-// Start server
-const port = 3000;
-console.log(`Server running at http://localhost:${port}`);
-serve({
-  fetch: app.fetch,
-  port,
-});
+// Root – not available (avoids exposing anything at /)
+app.get("/", (c) => c.json({ error: "Not Found" }, 404));
+app.all("/", (c) => c.json({ error: "Not Found" }, 404));
+
+// Start server only when not on Vercel (serverless uses api/[[...route]].ts)
+if (!process.env.VERCEL) {
+  const port = 3000;
+  console.log(`Server running at http://localhost:${port}`);
+  serve({
+    fetch: app.fetch,
+    port,
+  });
+}
 
 export default app;
