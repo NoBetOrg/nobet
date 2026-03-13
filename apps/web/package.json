@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:web": "pnpm run build",
     "preview": "vite preview",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
