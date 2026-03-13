@@ -1,6 +1,6 @@
 {
   "buildCommand": "cd ../.. && pnpm turbo run build:api",
   "installCommand": "cd ../.. && pnpm install",
-  "framework": null,
+  "framework": "hono",
   "rewrites": [{ "source": "/(.*)", "destination": "/api/$1" }]
 }
