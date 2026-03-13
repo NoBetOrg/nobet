@@ -12,10 +12,6 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "build/**"]
     },
-    "@nobet/api#build": {
-      "dependsOn": ["^build", "db:migrate"],
-      "outputs": ["dist/**"]
-    },
     "dev": {
       "persistent": true,
       "cache": false
