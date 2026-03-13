@@ -17,6 +17,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "build:api": "turbo run build --filter=@nobet/api",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "format": "turbo run format",
@@ -36,10 +37,12 @@
   "packageManager": "pnpm@10.4.1",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.5",
     "drizzle-kit": "^0.30.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "turbo": "^2.8.16"
+    "turbo": "^2.8.16",
+    "typescript": "^5.7.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,md}": [
