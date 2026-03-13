@@ -12,14 +12,6 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "build/**"]
     },
-    "build:web": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "build/**"]
-    },
-    "build:api": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "build/**"]
-    },
     "dev": {
       "persistent": true,
       "cache": false

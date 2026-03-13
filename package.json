@@ -17,8 +17,6 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "build:api": "pnpm db:migrate && turbo run build --filter=@nobet/api",
-    "build:web": "turbo run build --filter=@nobet/web",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "format": "turbo run format",
