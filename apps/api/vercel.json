@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd ../.. && pnpm turbo run build --filter=@nobet/api",
+  "buildCommand": "cd ../.. && pnpm turbo run build --filter=@nobet/api...",
   "installCommand": "cd ../.. && pnpm install",
   "framework": "hono",
   "rewrites": [{ "source": "/(.*)", "destination": "/api/$1" }]
